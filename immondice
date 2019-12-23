@@ -1,0 +1,18 @@
+from turtle import *
+from math import *
+from random import *
+couleurs=['IndianRed','firebrick','red','tomato','salmon','gold','goldenrod','peach puff','lemon chiffon','aquamarine','spring green','sea green','turquoise','cyan','blue','navy','purple','dark violet','orchid','plum','deep pink','violet red']
+x=0.1
+i=0
+hideturtle()
+speed(0)
+while True:
+  x=x+0.1
+  color(choice(couleurs),'yellow')
+  begin_fill()
+  forward(200+x**2-sqrt(x))
+  left(170+x)
+  forward(-sqrt(x))
+  end_fill()
+  i=i+1
+done()
