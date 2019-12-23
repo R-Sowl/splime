@@ -1,0 +1,85 @@
+from turtle import *
+from random import *
+
+#parce que sinon c'est triste:
+couleurs=['red','aquamarine','green','blue','orange','purple','purple','gold']
+hideturtle()
+
+#un carré
+def carre():
+  speed(0)
+  color(choice(couleurs),choice(couleurs))
+  begin_fill()
+  for i in range(4):
+    fd(200)#on peut changer a taille du carré
+    rt(90)
+  end_fill()
+
+#un stade
+def stade():
+  speed(0)
+  pendown()
+  color(choice(couleurs),'white')
+  for i in range(2):
+    circle(50,180)
+    fd(100)
+  penup()
+  rt(90)
+  fd(20)
+  lt(90)
+  pendown()
+  color(choice(couleurs),'white')
+  for i in range(2):
+    circle(70,180)
+    fd(100)
+
+#un triangle équilatéral
+def triangle_equi():
+  color(choice(couleurs),choice(couleurs))
+  begin_fill()
+  for i in range(3):
+    fd(100)
+    rt(120)
+  end_fill()
+
+#un des exemples de la fiche
+def bizarre():
+  speed(0)
+  color(choice(couleurs),choice(couleurs))
+  begin_fill()
+  for j in range(4):
+    for i in range(11):
+      fd(20)
+      rt(90)
+      fd(20)
+      lt(90)
+    rt(90)
+  end_fill()
+
+def ecrire(x):
+  color(choice(couleurs),'white')
+  write(x,True, align="left", font=("Arial", 20,'normal'))
+
+#pas besoin de liste mais bon
+formes=['effacer','carre','stade','triangle','bizarre','ecrire']
+#brbr est la réponse à la question 'recommencer?'
+brbr='oui'
+while brbr=='oui':
+  result=str(input('→Quelle forme?\n  •Carre\n  •Stade\n  •Triangle (équilatéral)\n  •Bizarre\n  •Effacer\n  •Ecrire\n→→'))
+  if result==formes[1]:
+    carre()
+  if  result==formes[2]:
+    stade()
+  if result==formes[0]:
+    clear()
+  if result==formes[3]:
+    triangle_equi()
+  if result==formes[4]:
+     bizarre()
+  if result==formes[5]:
+    ecrire(str(input('Ecrire =>')))
+  else:
+    #s'il y a une érreur dans la réponse, mais ça ne correspond pas toujours...
+    print('\n==> Piti!\n')
+  brbr=str(input('Recommencer? '))
+  print('\n')
